@@ -2,7 +2,7 @@
 FROM python:3.12.0-slim
 
 # Set environment variables to avoid .pyc files and enable unbuffered output
-# ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 # Set the working directory in the container
