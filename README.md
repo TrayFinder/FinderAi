@@ -16,6 +16,7 @@ repo-root/
 │── pylint.sh     # Script for linting code
 │── README.md     # Documentation
 │── requirements.txt  # Python dependencies
+│── .devcontainer/  # VS Code Dev Container configuration (optional)
 ```
 
 ## 🐳 Environment Setup with Docker
@@ -50,12 +51,50 @@ Once the container is running, you can:
 ```bash
 docker exec -it my_deep_learning_container python src/train.py
 ```
+
+## 🖥️ Optional: Using VS Code Dev Containers
+If you use VS Code, you can take advantage of the **Dev Containers** extension to work inside the container seamlessly.
+
+### 📦 **Opening in Dev Containers**
+1. Install the [VS Code Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers).
+2. Open VS Code in the repository root.
+3. When prompted, select **Reopen in Container**. Alternatively, open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac) and select:
+   ```
+   Remote-Containers: Reopen in Container
+   ```
+4. VS Code will build and start the container, automatically mounting the repository.
+
+### ⚙️ **Configuration**
+The `.devcontainer/devcontainer.json` file configures the environment inside the container, including extensions and settings:
+```json
+{
+  "name": "FinderAi Dev Container",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/app",
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  }
+}
+```
+This ensures a fully configured environment whenever you open the repository with Dev Containers.
+
 ## ⚡ Features
 ✅ Fully isolated deep learning environment  
 ✅ Persistent storage of all changes  
 ✅ Jupyter Notebook and Python script support  
 ✅ GPU acceleration (if supported and configured)  
-✅ Easy setup with `docker-compose`
+✅ Easy setup with `docker-compose`  
+✅ Seamless integration with VS Code Dev Containers (optional)  
 
 ---
 
