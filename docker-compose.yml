@@ -1,7 +1,7 @@
 services:
   app:
     build: .
-    container_name: ai-finder-container
+    container_name: finder-ai-container
     # Bind mount the current directory to /app in the container
     volumes:
       - ./:/app
