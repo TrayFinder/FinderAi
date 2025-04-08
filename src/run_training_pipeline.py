@@ -1,9 +1,6 @@
 import os
 import sys
 
-# Set root project directory
-os.chdir("..")
-
 from roboflow import Roboflow
 import utils.config as constants
 from utils.dataset_preparator import DatasetPreparator
@@ -43,7 +40,6 @@ def train_model(dataset_dir: str):
         batch_size=16,
         epochs=50,
         model_size='n',
-        save_best_to=os.path.join(constants.SRC_MODELS_DIR, "best_model")
     )
     trainer.train()
 
