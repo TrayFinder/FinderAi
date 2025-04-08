@@ -1,0 +1,17 @@
+services:
+  app:
+    build: .
+    container_name: finder-ai-container
+    # Bind mount the current directory to /app in the container
+    volumes:
+      - ./:/app
+    # (Optional) expose any necessary ports
+    # ports:
+    #   - "5000:5000"
+    # Pass along the environment variables (if you want them available here too)
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+    
+    command: ["sleep", "infinity"]
+    user: "${UID}:${GID}"
