@@ -100,7 +100,7 @@ This ensures a fully configured environment whenever you open the repository wit
 
 This setup ensures a **consistent, reproducible, and efficient** workflow for deep learning projects. Happy coding! 🚀
 
-### to change the permissions so the files can be modified from inside and outside the container: 
+### To save changes from inside and outside the container
 ```bash
 sudo chmod -R a+rwX .
 sudo chown -R $USER:$USER .
