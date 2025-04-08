@@ -53,7 +53,8 @@ class YoloTrainer:
         # LoggerClass.debug(f"📂 Loading model: {model_path}")
         # model = YOLO(arch_path).load(model_path)
         LoggerClass.debug("📂 Loading model..")
-        model = YOLO('/home/guilherme/Documents/Projects/TrayFinder/FinderAi/src/models/10_epochs_small.pt')
+        local_model_path = os.path.join(constants.SRC_MODELS_DIR, '10_epochs_small.pt')
+        model = YOLO(local_model_path)
 
         LoggerClass.info(f"🚀 Starting training for {self.epochs} epochs")
         model.train(
