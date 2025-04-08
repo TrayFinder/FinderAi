@@ -38,8 +38,8 @@ def train_model(dataset_dir: str):
         project_dir=dataset_dir,
         image_size=640,
         batch_size=16,
-        epochs=50,
-        model_size='n',
+        epochs=30,
+        model_size='s',
     )
     trainer.train()
 
