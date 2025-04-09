@@ -14,7 +14,7 @@ def download_dataset():
     rf = Roboflow(api_key="le2CyyH9KBXSfalWzMP7")
     project = rf.workspace("cfemodel").project("cverde")
     version = project.version(1)
-    dataset = version.download("yolov11", location=constants.DATASETS_DIR, overwrite=False)
+    dataset = version.download("yolov11", location=constants.DATASETS_DIR + 'cverde-1', overwrite=True)
     return os.path.join(constants.DATASETS_DIR, 'cverde-1')
 
 
@@ -38,7 +38,7 @@ def train_model(dataset_dir: str):
         project_dir=dataset_dir,
         image_size=640,
         batch_size=16,
-        epochs=30,
+        epochs=40,
         model_size='s',
     )
     trainer.train()

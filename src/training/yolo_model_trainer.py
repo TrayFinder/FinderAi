@@ -19,7 +19,7 @@ class YoloTrainer:
         image_size: int,
         batch_size: int,
         epochs: int,
-        model_size: str = 'n'
+        model_size: str = 's'
     ):
         self.project_dir = project_dir
         self.image_size = image_size

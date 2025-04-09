@@ -9,6 +9,9 @@ __pycache__/
 # Datasets
 src/datasets/cverde-1/
 
+# .output files
+src/nohup.out
+
 # Distribution / packaging
 .Python
 build/
