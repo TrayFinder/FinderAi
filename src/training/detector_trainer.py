@@ -8,9 +8,9 @@ from multiprocessing import cpu_count
 import utils.config as constants
 from utils.logger_class import LoggerClass
 
-class YoloTrainer:
+class DetectorTrainer:
     """
-    Handles the training and export of a YOLO model using a specified dataset and configuration.
+    Handles the training and export of a Yolo Detector model using a specified dataset and configuration.
     """
 
     def __init__(
@@ -19,11 +19,13 @@ class YoloTrainer:
         image_size: int,
         batch_size: int,
         epochs: int,
+        lr: float = 1e-3,
         model_size: str = 's'
     ):
         self.project_dir = project_dir
         self.image_size = image_size
         self.batch_size = batch_size
+        self.lr = lr
         self.epochs = epochs
         self.model_size = model_size
         self.cpu_cores, self.gpu_devices = self._validate_hardware()
