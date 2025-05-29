@@ -1,3 +1,6 @@
+"""
+Usage: python main.py --model [detector | embedding]
+"""
 import os
 import sys
 import argparse
