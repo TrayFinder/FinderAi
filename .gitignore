@@ -7,7 +7,7 @@
 *.so
 
 # Datasets
-src/datasets/cverde-1/
+**/datasets/
 
 # .output files
 src/nohup.out

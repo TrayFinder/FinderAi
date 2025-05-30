@@ -8,7 +8,7 @@ import argparse
 from roboflow import Roboflow
 import utils.config as constants
 from utils.dataset_preparator import DatasetPreparator
-from FinderAi.src.training.detector_trainer import DetectorTrainer
+from FinderAi.production.training.detector_trainer import DetectorTrainer
 from training.embedding_trainer import EmbeddingTrainer
 from utils.logger_class import LoggerClass
 

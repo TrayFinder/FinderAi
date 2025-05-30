@@ -38,7 +38,7 @@ class EmbeddingTrainer:
         self.train_dir = os.path.join(self.project_dir, cfg['train'])
         self.val_dir   = os.path.join(self.project_dir, cfg['val'])
         self.num_classes = len(cfg['names'])
-        self.output_dir = os.path.join(constants.SRC_MODELS_DIR, f'embedding_{date.today()}')
+        self.output_dir = os.path.join(constants.MODELS_DIR, f'embedding_{date.today()}')
         os.makedirs(self.output_dir, exist_ok=True)
 
         LoggerClass.configure('embedding_trainer', debug=False)

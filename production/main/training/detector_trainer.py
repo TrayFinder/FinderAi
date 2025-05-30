@@ -55,7 +55,7 @@ class DetectorTrainer:
         # LoggerClass.debug(f"📂 Loading model: {model_path}")
         # model = YOLO(arch_path).load(model_path)
         LoggerClass.debug("📂 Loading model..")
-        local_model_path = os.path.join(constants.SRC_MODELS_DIR, '10_epochs_small.pt')
+        local_model_path = os.path.join(constants.MODELS_DIR, '10_epochs_small.pt')
         model = YOLO(local_model_path)
 
         LoggerClass.info(f"🚀 Starting training for {self.epochs} epochs")
@@ -66,7 +66,7 @@ class DetectorTrainer:
             batch=self.batch_size,
             device=self.gpu_devices,
             lr0=0.001,
-            project=constants.SRC_MODELS_DIR,
+            project=constants.MODELS_DIR,
             name="results",
             exist_ok=True,
             patience=4,
@@ -82,11 +82,11 @@ class DetectorTrainer:
         """
         Export the trained model to ONNX format.
         """
-        results_dir = os.path.join(constants.SRC_MODELS_DIR, "results")
+        results_dir = os.path.join(constants.MODELS_DIR, "results")
         best_model_path = os.path.join(results_dir, "weights", "best.pt")
 
         if os.path.exists(best_model_path):
-            day_dir = os.path.join(constants.SRC_MODELS_DIR, str(date.today()))
+            day_dir = os.path.join(constants.MODELS_DIR, str(date.today()))
             os.makedirs(day_dir, exist_ok=True)
             dest_path = os.path.join(day_dir, "best.pt")
             shutil.copy2(best_model_path, dest_path)
