@@ -2,23 +2,6 @@
 
 This repository provides a **Docker-based development environment** for deep learning projects, ensuring consistency and reproducibility across different setups. The environment supports Python scripts, Jupyter notebooks, and deep learning model training inside a container while preserving all changes made to files.
 
-## 📁 Project Structure
-```
-repo-root/
-│── data/         # Dataset storage
-│── models/       # Trained models and checkpoints
-│── notebooks/    # Jupyter notebooks for experiments
-│── reports/      # Logs, metrics, and training results
-│── src/          # Source code for model training and utilities
-│── .gitignore    # Git ignore file
-│── docker-compose.yaml  # Configuration for running the container
-│── Dockerfile    # Docker image setup
-│── pylint.sh     # Script for linting code
-│── README.md     # Documentation
-│── requirements.txt  # Python dependencies
-│── .devcontainer/  # VS Code Dev Container configuration (optional)
-```
-
 ## 🐳 Environment Setup with Docker
 This project uses **Docker and Docker Compose** to set up the development environment.
 
