@@ -1,15 +1,13 @@
 """
-Usage: python main.py --model [detector | embedding]
+Usage: python main.py
 """
 import os
 import sys
-import argparse
 
 from roboflow import Roboflow
 import utils.config as constants
 from utils.dataset_preparator import DatasetPreparator
-from FinderAi.production.training.detector_trainer import DetectorTrainer
-from training.embedding_trainer import EmbeddingTrainer
+from training.detector_trainer import DetectorTrainer
 from utils.logger_class import LoggerClass
 
 LoggerClass.configure(f'detection', debug=True)
@@ -45,38 +43,16 @@ def train_detector(dataset_dir: str):
     )
     trainer.train()
 
-def train_embedding(dataset_dir: str):
-    LoggerClass.info("🏋️ Training Embeddings model...")
-    trainer = EmbeddingTrainer(
-        project_dir=dataset_dir,
-        batch_size=32,
-        epochs=20
-    )
-
-def main(model_type: str):
+def main():
     dataset_dir = download_dataset()
     prepare_dataset(dataset_dir)
-
-    if model_type == "detector":
-        train_detector(dataset_dir)
-    elif model_type == "embedding":
-        train_embedding(dataset_dir)
-    else:
-        LoggerClass.info("❌ Invalid model type. Use 'detector' or 'embedding'.")
-        sys.exit(1)
+    train_detector(dataset_dir)
 
     LoggerClass.info("✅ All steps completed successfully!")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Train a model (Detector or Embedding)")
-    parser.add_argument(
-        "--model", type=str, required=True,
-        help="Model to train: 'detector' or 'embedding'"
-    )
-    args = parser.parse_args()
-
     try:
-        main(args.model)
+        main()
     except Exception as e:
         LoggerClass.info(f"❌ Pipeline failed: {e}")
         sys.exit(1)
